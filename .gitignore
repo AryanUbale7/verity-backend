@@ -3,3 +3,8 @@ frontend/
 .env
 __pycache__/
 desktop.ini
+venv/ 
+__pycache__/ 
+*.env 
+.DS_Store 
+cloudflared.exe 
