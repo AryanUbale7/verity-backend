@@ -9,7 +9,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # ==========================================
 # 🔑 API KEY (Yahan apni Key Dalein)
 # ==========================================
-API_KEY = "AIzaSyBYdSP4G7xvg7fLDvNnfSi2J0yqBVme9YU"
+# ✅ SAHI: Ye line Render ki settings se key uthayegi
+
+API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 genai.configure(api_key=API_KEY)
 
