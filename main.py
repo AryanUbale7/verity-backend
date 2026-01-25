@@ -1,4 +1,4 @@
-import os
+import os  # <--- Ye line add karein, ye missing thi
 import json
 import re
 import google.generativeai as genai
@@ -7,16 +7,15 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 # ==========================================
-# 🔑 API KEY (Yahan apni Key Dalein)
+# 🔑 API KEY (Environment Variable se)
 # ==========================================
-# ✅ SAHI: Ye line Render ki settings se key uthayegi
-
 API_KEY = os.environ.get("GOOGLE_API_KEY")
 
-genai.configure(api_key=API_KEY)
-
-app = FastAPI(title="Verity AI Backend")
-
+# Safety Check: Agar key nahi mili toh server start hote hi error dikhaye
+if not API_KEY:
+    print("❌ ERROR: GOOGLE_API_KEY environment variable nahi mila!")
+else:
+    genai.configure(api_key=API_KEY)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
