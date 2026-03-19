@@ -1,22 +1,15 @@
 import google.generativeai as genai
 
-# Yahan apni wahi Key dalein jo main.py mein hai
 API_KEY = "AIzaSyBKlF9w4bItCI8YMja_krsPHtpFpZvM8yQ"
 
 genai.configure(api_key=API_KEY)
 
-print("🔍 Checking available models for your Key...\n")
+print("🔍 Checking available models...\n")
 
 try:
     models = genai.list_models()
-    found = False
     for m in models:
         if 'generateContent' in m.supported_generation_methods:
             print(f"✅ Found: {m.name}")
-            found = True
-    
-    if not found:
-        print("❌ No models found! (Shayad API Key me issue hai)")
-
 except Exception as e:
     print(f"❌ Error: {e}")
