@@ -7,3 +7,4 @@ python-dotenv
 sqlalchemy
 pymysql
 python-jose[cryptography]
+passlib
